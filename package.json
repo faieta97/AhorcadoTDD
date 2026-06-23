@@ -1,0 +1,28 @@
+{
+  "name": "AhorcadoTDD",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "vitest",
+    "at": "bddgen && playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faieta97/AhorcadoTDD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faieta97/AhorcadoTDD/issues"
+  },
+  "homepage": "https://github.com/faieta97/AhorcadoTDD#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "playwright-bdd": "^9.2.0",
+    "vite": "^8.1.0",
+    "vitest": "^4.1.9"
+  }
+}
