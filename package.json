@@ -21,6 +21,7 @@
   "homepage": "https://github.com/faieta97/AhorcadoTDD#readme",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
+    "playwright": "^1.61.1",
     "playwright-bdd": "^9.2.0",
     "vite": "^8.1.0",
     "vitest": "^4.1.9"
