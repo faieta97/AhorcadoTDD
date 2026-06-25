@@ -1,13 +1,26 @@
 import { Ahorcado } from "../domain/Ahorcado";
 
-export function mountApp(juego: Ahorcado) {
+function render(juego: Ahorcado) {
   const wordEl = document.getElementById("word");
   const livesEl = document.getElementById("lives");
 
-  if (wordEl) {
-    wordEl.textContent = juego.palabraEnmascarada();
-  }
-  if (livesEl) {
-    livesEl.textContent = String(juego.vidasRestantes());
-  }
+  if (wordEl) wordEl.textContent = juego.palabraEnmascarada();
+  if (livesEl) livesEl.textContent = String(juego.vidasRestantes());
+}
+
+export function mountApp(juego: Ahorcado) {
+  render(juego);
+
+  const form = document.getElementById("guess-form") as HTMLFormElement | null;
+  const input = document.getElementById("guess-input") as HTMLInputElement | null;
+
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const letra = input?.value.trim().toUpperCase() ?? "";
+    if (letra.length === 1) {
+      juego.adivinar(letra);
+      render(juego);
+      if (input) input.value = "";
+    }
+  });
 }

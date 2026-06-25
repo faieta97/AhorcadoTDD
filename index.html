@@ -136,6 +136,55 @@
         transform: scale(1.15);
       }
     }
+
+    .guess-form {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .guess-input {
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      color: var(--text-primary);
+      outline: none;
+      caret-color: var(--accent);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .guess-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .guess-btn {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #8b5cf6, #f472b6);
+      color: white;
+      cursor: pointer;
+      transition: opacity 0.2s ease, transform 0.1s ease;
+    }
+
+    .guess-btn:hover {
+      opacity: 0.88;
+    }
+
+    .guess-btn:active {
+      transform: scale(0.96);
+    }
   </style>
 </head>
 <body>
@@ -155,6 +204,19 @@
           <span id="lives" data-testid="lives"></span>
         </span>
       </div>
+
+      <form class="guess-form" id="guess-form">
+        <input
+          class="guess-input"
+          type="text"
+          id="guess-input"
+          maxlength="1"
+          autocomplete="off"
+          aria-label="Ingresá una letra"
+          placeholder="A"
+        />
+        <button class="guess-btn" type="submit">Adivinar</button>
+      </form>
     </div>
   </div>
 
