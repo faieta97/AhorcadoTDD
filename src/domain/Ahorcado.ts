@@ -1,10 +1,14 @@
 export class Ahorcado {
   private letrasAdivinadas = new Set<string>();
+  private vidas = 6;
 
   constructor(private palabra: string) {}
 
   adivinar(letra: string): void {
     this.letrasAdivinadas.add(letra);
+    if (!this.palabra.includes(letra)) {
+      this.vidas--;
+    }
   }
 
   palabraEnmascarada(): string {
@@ -15,6 +19,6 @@ export class Ahorcado {
   }
 
   vidasRestantes(): number {
-    return 6;
+    return this.vidas;
   }
 }
