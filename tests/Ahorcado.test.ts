@@ -14,4 +14,11 @@ describe("Ahorcado", () => {
     expect(juego.palabraEnmascarada()).toBe("_ A _ _");
     expect(juego.vidasRestantes()).toBe(6);
   });
+
+  it("al adivinar la letra 'E' en 'GATO', la palabra enmascarada sigue siendo '_ _ _ _' y las vidas restantes bajan a 5", () => {
+    const juego = new Ahorcado("GATO");
+    juego.adivinar("E");
+    expect(juego.palabraEnmascarada()).toBe("_ _ _ _");
+    expect(juego.vidasRestantes()).toBe(5);
+  });
 });
