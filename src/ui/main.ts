@@ -1,8 +1,8 @@
 import { Ahorcado } from "../domain/Ahorcado";
 
 function render(juego: Ahorcado) {
-  const wordEl = document.getElementById("word");
-  const livesEl = document.getElementById("lives");
+  const wordEl = document.querySelector('[data-testid="word"]');
+  const livesEl = document.querySelector('[data-testid="lives"]');
 
   if (wordEl) wordEl.textContent = juego.palabraEnmascarada();
   if (livesEl) livesEl.textContent = String(juego.vidasRestantes());
