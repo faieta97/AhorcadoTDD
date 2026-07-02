@@ -29,4 +29,8 @@ export class Ahorcado {
   haPerdido(): boolean {
     return this.vidas <= 0;
   }
+
+  palabraCompleta(): string {
+    return this.palabra.split("").join(" ");
+  }
 }

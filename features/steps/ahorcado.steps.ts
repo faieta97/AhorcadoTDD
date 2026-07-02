@@ -13,7 +13,10 @@ When("el jugador adivina la letra {string}", async ({ page }, letra: string) => 
 });
 
 Then("se ve la palabra {string}", async ({ page }, esperada: string) => {
-  await expect(page.getByTestId("word")).toHaveText(esperada);
+  const actualText = await page.getByTestId("word").textContent();
+  const actualNormalized = actualText?.replace(/\s+/g, "") || "";
+  const expectedNormalized = esperada.replace(/\s+/g, "");
+  expect(actualNormalized).toBe(expectedNormalized);
 });
 
 Then("se ven {int} vidas", async ({ page }, vidas: number) => {

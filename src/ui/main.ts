@@ -5,9 +5,22 @@ function render(juego: Ahorcado) {
   const livesEl = document.querySelector('[data-testid="lives"]');
   const messageEl = document.querySelector('[data-testid="message"]');
 
-  if (wordEl) wordEl.textContent = juego.palabraEnmascarada();
+  if (wordEl) {
+    wordEl.textContent = juego.haPerdido()
+      ? juego.palabraCompleta()
+      : juego.palabraEnmascarada();
+  }
   if (livesEl) livesEl.textContent = String(juego.vidasRestantes());
-  if (messageEl) messageEl.textContent = juego.haGanado() ? "¡Ganaste!" : "";
+
+  if (messageEl) {
+    if (juego.haPerdido()) {
+      messageEl.textContent = "Perdiste";
+    } else if (juego.haGanado()) {
+      messageEl.textContent = "¡Ganaste!";
+    } else {
+      messageEl.textContent = "";
+    }
+  }
 }
 
 export function mountApp(juego: Ahorcado) {
