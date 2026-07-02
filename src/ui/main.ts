@@ -3,9 +3,11 @@ import { Ahorcado } from "../domain/Ahorcado";
 function render(juego: Ahorcado) {
   const wordEl = document.querySelector('[data-testid="word"]');
   const livesEl = document.querySelector('[data-testid="lives"]');
+  const messageEl = document.querySelector('[data-testid="message"]');
 
   if (wordEl) wordEl.textContent = juego.palabraEnmascarada();
   if (livesEl) livesEl.textContent = String(juego.vidasRestantes());
+  if (messageEl) messageEl.textContent = juego.haGanado() ? "¡Ganaste!" : "";
 }
 
 export function mountApp(juego: Ahorcado) {
