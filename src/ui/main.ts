@@ -33,9 +33,14 @@ export function mountApp(juego: Ahorcado) {
     e.preventDefault();
     const letra = input?.value.trim().toUpperCase() ?? "";
     if (letra.length === 1) {
-      juego.adivinar(letra);
-      render(juego);
-      if (input) input.value = "";
+      if (juego.letraYaIntentada(letra)) {
+        const messageEl = document.querySelector('[data-testid="message"]');
+        if (messageEl) messageEl.textContent = "Ya intentaste esa letra";
+      } else {
+        juego.adivinar(letra);
+        render(juego);
+        if (input) input.value = "";
+      }
     }
   });
 }
