@@ -21,4 +21,13 @@ describe("Ahorcado", () => {
     expect(juego.palabraEnmascarada()).toBe("_ _ _ _");
     expect(juego.vidasRestantes()).toBe(5);
   });
+
+  it("al adivinar todas las letras de 'GATO', haGanado() devuelve true", () => {
+    const juego = new Ahorcado("GATO");
+    juego.adivinar("G");
+    juego.adivinar("A");
+    juego.adivinar("T");
+    juego.adivinar("O");
+    expect(juego.haGanado()).toBe(true);
+  });
 });
