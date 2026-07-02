@@ -42,5 +42,11 @@ describe("Ahorcado", () => {
     juego.adivinar("R");
     expect(juego.haPerdido()).toBe(true);
   });
+
+  it("después de adivinar la letra 'A', letraYaIntentada('A') devuelve true", () => {
+    const juego = new Ahorcado("GATO");
+    juego.adivinar("A");
+    expect(juego.letraYaIntentada("A")).toBe(true);
+  });
 });
 
