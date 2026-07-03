@@ -62,5 +62,15 @@ describe("Ahorcado", () => {
     juego.adivinar("O");
     expect(juego.haTerminado()).toBe(true);
   });
+
+  it("esLetraValida('A') devuelve true", () => {
+    const juego = new Ahorcado("GATO");
+    expect(juego.esLetraValida("A")).toBe(true);
+  });
+
+  it("esLetraValida('5') devuelve false", () => {
+    const juego = new Ahorcado("GATO");
+    expect(juego.esLetraValida("5")).toBe(false);
+  });
 });
 
