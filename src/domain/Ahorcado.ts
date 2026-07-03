@@ -34,6 +34,10 @@ export class Ahorcado {
     return this.letrasAdivinadas.has(letra);
   }
 
+  haTerminado(): boolean {
+    return this.haGanado() || this.haPerdido();
+  }
+
   palabraCompleta(): string {
     return this.palabra.split("").join(" ");
   }
