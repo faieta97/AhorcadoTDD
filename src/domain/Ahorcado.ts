@@ -38,6 +38,10 @@ export class Ahorcado {
     return this.haGanado() || this.haPerdido();
   }
 
+  esLetraValida(letra: string): boolean {
+    return /^[a-zA-Z]$/.test(letra);
+  }
+
   palabraCompleta(): string {
     return this.palabra.split("").join(" ");
   }
