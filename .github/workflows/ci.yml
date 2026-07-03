@@ -84,7 +84,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22 # Opcional: Subido a Node 22 para eliminar los avisos de deprecación de Node 20
           cache: npm
 
       - name: Install dependencies
@@ -94,9 +94,9 @@ jobs:
         run: npm run build
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4 # <--- CORREGIDO: Cambiado a v4
         with:
-          path: dist
+          path: dist # <--- ¡Verifica que esta sea tu carpeta de salida real!
 
       - name: Deploy to GitHub Pages
         id: deployment
