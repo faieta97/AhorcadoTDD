@@ -48,5 +48,19 @@ describe("Ahorcado", () => {
     juego.adivinar("A");
     expect(juego.letraYaIntentada("A")).toBe(true);
   });
+
+  it("haTerminado() devuelve false al inicio de la partida", () => {
+    const juego = new Ahorcado("GATO");
+    expect(juego.haTerminado()).toBe(false);
+  });
+
+  it("haTerminado() devuelve true cuando el jugador ganó", () => {
+    const juego = new Ahorcado("GATO");
+    juego.adivinar("G");
+    juego.adivinar("A");
+    juego.adivinar("T");
+    juego.adivinar("O");
+    expect(juego.haTerminado()).toBe(true);
+  });
 });
 
