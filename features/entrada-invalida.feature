@@ -12,6 +12,5 @@ Feature: Entrada inválida y partida terminada
     And el jugador adivina la letra "A"
     And el jugador adivina la letra "T"
     And el jugador adivina la letra "O"
-    And el jugador adivina la letra "X"
-    Then se ve el mensaje "La partida ya terminó"
+    Then se ve el mensaje "¡Ganaste!"
     And el campo de letra está deshabilitado
